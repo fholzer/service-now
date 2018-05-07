@@ -94,6 +94,9 @@ class ServiceNow {
             } catch(e) {
                 var res = body
             }
+            if(!err && res.__error) {
+                err = res.__error;
+            }
             let jsonRes = res.records;
             callback(err, jsonRes)
         });
